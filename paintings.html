@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Font Awesome CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <title>Portfolio</title>
+  </head>
+  <body>
+    <header class="header">
+      <img src="zahra.jpg" alt="Artist Picture" />
+      <div class="artist-info">
+        <h1>Artist Name</h1>
+        <p>Information about the artist goes here.</p>
+      </div>
+    </header>
+    <div class="portfolio">
+      <div class="artwork" id="artwork1">
+        <img
+          src="img1.jpg"
+          alt="Artwork 1"
+          class="zoom"
+          onclick="openModal('img1.jpg', 'Image 1')"
+        />
+        <span class="artwork-name">Image 1</span>
+      </div>
+      <div class="artwork" id="artwork2">
+        <img
+          src="img2.jpg"
+          alt="Artwork 2"
+          class="zoom"
+          onclick="openModal('img2.jpg', 'Image 2')"
+        />
+        <span class="artwork-name">Image 2</span>
+      </div>
+      <div class="artwork" id="artwork3">
+        <img
+          src="img3.jpg"
+          alt="Artwork 3"
+          class="zoom"
+          onclick="openModal('img3.jpg', 'Image 3')"
+        />
+        <span class="artwork-name">Image 3</span>
+      </div>
+    </div>
+
+    <div id="modal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div class="modal-content">
+        <img id="modalImage" src="" alt="Modal Image" />
+        <div class="caption-container">
+          <div id="caption" class="caption"></div>
+        </div>
+        <div class="modal-buttons">
+          <button onclick="zoomIn()"><i class="fas fa-search-plus"></i></button>
+          <button onclick="zoomOut()">
+            <i class="fas fa-search-minus"></i>
+          </button>
+          <button onclick="panLeft()"><i class="fas fa-arrow-left"></i></button>
+          <button onclick="panRight()">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,75 +1,172 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <!-- Font Awesome CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    <title>Portfolio</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+        background-color: #1a1a1a; /* Dark background */
+        color: #fff; /* Text color */
+      }
+      .header {
+        background-color: #333;
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px;
+        margin-top: 20px;
+        overflow: hidden;
+        position: relative;
+      }
+      .artist-image-container {
+        position: relative;
+        display: inline-block;
+      }
+      .artist-image {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+
+        background-image: url("zahra.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin-bottom: 20px;
+      }
+      .border-decor {
+        position: absolute;
+        top: -15px;
+        left: -15px;
+        right: -15px;
+        bottom: -15px;
+        border: 2px dashed #555;
+        border-radius: 50%;
+      }
+      .resume {
+        text-align: left;
+        max-width: 600px;
+        line-height: 1.6;
+      }
+      .button-container {
+        display: flex;
+        justify-content: center;
+      }
+      .button-container button {
+        margin: 10px;
+        padding: 15px 30px;
+        font-size: 18px;
+        border: none;
+        color: white;
+        cursor: pointer;
+        border-radius: 20px;
+        font-weight: bold;
+        background: linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.5),
+          rgba(255, 255, 255, 0.1)
+        );
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+      }
+      .button-container button:nth-child(1) {
+        background-color: #931004; /* Red-ish */
+      }
+      .button-container button:nth-child(2) {
+        background-color: #0b5268; /* Blue-ish */
+      }
+      .button-container button:nth-child(3) {
+        background-color: #0b5b33; /* Green-ish */
+      }
+      .button-container button:hover {
+        opacity: 0.8;
+      }
+      .stars-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+      }
+      .star {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        animation: animateStars linear infinite;
+        opacity: 0; /* Stars start as invisible */
+      }
+      @keyframes animateStars {
+        0%,
+        100% {
+          transform: translateY(-5vh); /* Stars start off the visible area */
+          opacity: 0; /* Stars are not visible at the start and end */
+        }
+        50% {
+          transform: translateY(105vh); /* Stars move into the visible area */
+          opacity: 1; /* Stars are fully visible */
+        }
+      }
+    </style>
   </head>
   <body>
-    <header class="header">
-      <img src="zahra.jpg" alt="Artist Picture" />
-      <div class="artist-info">
-        <h1>Artist Name</h1>
-        <p>Information about the artist goes here.</p>
+    <div class="header">
+      <h1>Welcome to Zahra's Art Gallery</h1>
+    </div>
+    <div class="container">
+      <div class="artist-image-container">
+        <div class="artist-image"></div>
       </div>
-    </header>
-    <div class="portfolio">
-      <div class="artwork" id="artwork1">
-        <img
-          src="img1.jpg"
-          alt="Artwork 1"
-          class="zoom"
-          onclick="openModal('img1.jpg', 'Image 1')"
-        />
-        <span class="artwork-name">Image 1</span>
+
+      <h1>Zahra Pakdelnia</h1>
+      <div class="button-container">
+        <button>Paintings</button>
+        <button>Graphics</button>
+        <button>Digital arts</button>
       </div>
-      <div class="artwork" id="artwork2">
-        <img
-          src="img2.jpg"
-          alt="Artwork 2"
-          class="zoom"
-          onclick="openModal('img2.jpg', 'Image 2')"
-        />
-        <span class="artwork-name">Image 2</span>
-      </div>
-      <div class="artwork" id="artwork3">
-        <img
-          src="img3.jpg"
-          alt="Artwork 3"
-          class="zoom"
-          onclick="openModal('img3.jpg', 'Image 3')"
-        />
-        <span class="artwork-name">Image 3</span>
+      <div class="resume">
+        <h2>Bachelor degree in Graphics science</h2>
+        <p>Location: France , Nantes</p>
+        <p>another resume items</p>
       </div>
     </div>
+    <div class="stars-container"></div>
 
-    <div id="modal" class="modal">
-      <div class="modal-content">
-        <button class="close-button" onclick="closeModal()">
-          <i class="fas fa-times"></i>
-        </button>
-        <img id="modalImage" src="" alt="Modal Image" />
-        <div id="caption"></div>
-        <div class="modal-buttons">
-          <button onclick="zoomIn()"><i class="fas fa-search-plus"></i></button>
-          <button onclick="zoomOut()">
-            <i class="fas fa-search-minus"></i>
-          </button>
-          <button onclick="panLeft()"><i class="fas fa-arrow-left"></i></button>
-          <button onclick="panRight()">
-            <i class="fas fa-arrow-right"></i>
-          </button>
-        </div>
-      </div>
-    </div>
+    <script>
+      const numStars = 100; // Adjust the number of stars
 
-    <script src="script.js"></script>
+      const starsContainer = document.querySelector(".stars-container");
+
+      for (let i = 0; i < numStars; i++) {
+        const star = document.createElement("div");
+        star.classList.add("star");
+        star.style.width = `10px`;
+        star.style.height = `10px`;
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.animationDuration = `${Math.random() * 18 + 9}s`; // Slow down the animation
+        star.style.animationDelay = `${Math.random() * 9}s`;
+        star.style.backgroundColor = getRandomColor();
+        starsContainer.appendChild(star);
+      }
+
+      function getRandomColor() {
+        const letters = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+    </script>
   </body>
 </html>
