@@ -1,146 +1,113 @@
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  background-color: #1a1a1a; /* Dark background */
+  color: #fff; /* Text color */
 }
-
-.portfolio {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.artwork {
-  margin: 20px;
-  position: relative;
-  width: 250px; /* Adjust the width for larger devices */
-}
-
-.artwork img {
-  width: 100%;
-  height: auto;
-  transition: transform 0.3s;
-}
-
-.artwork img:hover {
-  transform: scale(
-    1.5
-  ); /* Increase the scale factor for a larger zoom effect */
-}
-
-.artwork .artwork-name {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.7);
+.header {
+  background-color: #333;
   color: white;
-  padding: 5px;
+  padding: 20px;
+  text-align: center;
 }
-
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.9);
-  padding-top: 60px;
-}
-
-.modal .modal-content {
+.container {
+  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 50px;
+  margin-top: 20px;
+
+  position: relative;
+}
+.artist-image-container {
+  position: relative;
+  display: inline-block;
+}
+.artist-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-image: url("zahra.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 20px;
+}
+
+.resume {
+  text-align: left;
+  max-width: 600px;
+  line-height: 1.6;
+}
+.button-container {
   justify-content: center;
-  height: 100%;
-}
-
-.modal .modal-content img {
-  max-width: 100%;
-  max-height: 60%; /* Adjust the height as needed */
-  object-fit: contain;
-  margin-bottom: 10px;
-}
-
-.modal .modal-buttons {
-  position: fixed;
-  z-index: +10;
   display: flex;
-  justify-content: space-around;
-  width: 100%;
-  bottom: 20px;
+  @media screen and (max-width: 1000px) {
+    display: block;
+  }
 }
 
-.modal .modal-buttons button {
-  background: rgba(0, 0, 0, 0.5);
+.button-container button {
+  @media screen and (max-width: 1000px) {
+    min-width: 300px;
+  }
+  margin: 10px;
+  padding: 15px 30px;
+  font-size: 18px;
   border: none;
   color: white;
-  font-size: 20px;
   cursor: pointer;
-  padding: 10px;
-  border-radius: 50%;
+  border-radius: 20px;
+  font-weight: bold;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.1)
+  );
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
-
-.modal .modal-buttons button i {
-  font-size: inherit;
+.button-container button:nth-child(1) {
+  background-color: #931004; /* Red-ish */
 }
-
-.modal .modal-content .close-button {
-  position: fixed;
-  background: rgba(0, 0, 0, 0.7);
-  border: none;
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
-  padding: 10px 15px;
-  border-radius: 50%;
+.button-container button:nth-child(2) {
+  background-color: #0b5268; /* Blue-ish */
+}
+.button-container button:nth-child(3) {
+  background-color: #0b5b33; /* Green-ish */
+}
+.button-container button:hover {
+  opacity: 0.8;
+}
+.stars-container {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 2;
-}
-
-.modal .modal-content .close-button i {
-  position: fixed;
-  font-size: inherit;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  background-color: #f0f0f0;
-  padding: 20px;
-  position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
 }
-
-.header img {
-  max-width: 100px;
-  max-height: 100px;
+.star {
+  position: absolute;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  margin-right: 20px;
+  animation: animateStars linear infinite;
+  opacity: 0; /* Stars start as invisible */
 }
-
-.header .artist-info {
-  text-align: left;
+@keyframes animateStars {
+  0%,
+  100% {
+    transform: translateY(-5vh); /* Stars start off the visible area */
+    opacity: 0; /* Stars are not visible at the start and end */
+  }
+  50% {
+    transform: translateY(105vh); /* Stars move into the visible area */
+    opacity: 1; /* Stars are fully visible */
+  }
 }
-
-.header .artist-info h1 {
-  margin: 0;
-}
-
-.header .artist-info p {
-  margin: 5px 0 0;
-}
-/* Adjust styles for smaller screens (media queries) if needed */
