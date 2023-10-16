@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Font Awesome CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <title>Portfolio</title>
+  </head>
+  <body>
+    <header class="header">
+      <img src="../zahra.jpg" alt="Artist Picture" />
+      <div class="artist-info">
+        <h1>Zahra Pakdelnia</h1>
+        <p>Paintings with different techniques</p>
+      </div>
+    </header>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Paintings</a></li>
+      <li><a href="#">Graphics</a></li>
+      <li><a href="#">Digital Art</a></li>
+    </ul>
+
+    <div class="portfolio">
+      <div class="artwork" id="artwork1">
+        <img
+          src="painting1.jpg"
+          alt="Artwork 1"
+          class="zoom"
+          onclick="openModal('painting1.jpg', 'painting 1')"
+        />
+        <span class="artwork-name"
+          ><b style="color: rgb(255, 178, 23); font-size: 14px">Name: </b
+          >Christian hemthworth
+          <br />
+          <b style="color: rgb(255, 178, 23); font-size: 14px">Technique: </b
+          >Chiaroscuro <br />
+          <b style="color: rgb(255, 178, 23); font-size: 14px">Artist: </b>Zahra
+          Padkelnia</span
+        >
+      </div>
+      <div class="artwork" id="artwork2">
+        <img
+          src="painting2.jpg"
+          alt="Artwork 2"
+          class="zoom"
+          onclick="openModal('painting2.jpg', 'painting 2')"
+        />
+        <span class="artwork-name"
+          ><b style="color: rgb(255, 178, 23); font-size: 14px">Name: </b>My
+          unckle
+          <br />
+          <b style="color: rgb(255, 178, 23); font-size: 14px">Technique: </b
+          >Chiaroscuro <br />
+          <b style="color: rgb(255, 178, 23); font-size: 14px">Artist: </b>Zahra
+          Padkelnia</span
+        >
+      </div>
+      <div class="artwork" id="artwork3">
+        <img
+          src="painting3.jpg"
+          alt="Artwork 3"
+          class="zoom"
+          onclick="openModal('painting3.jpg', 'painting 3')"
+        />
+        <span class="artwork-name"
+          ><b style="color: rgb(255, 178, 23); font-size: 14px">Name: </b>The
+          old man
+          <br />
+          <b style="color: rgb(255, 178, 23); font-size: 14px">Technique: </b
+          >Pen <br />
+          <b style="color: rgb(255, 178, 23); font-size: 14px">Artist: </b>Zahra
+          Padkelnia</span
+        >
+      </div>
+    </div>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <img id="modalImage" src="" alt="Modal Image" />
+        <div class="caption-container">
+          <div id="caption" class="caption"></div>
+        </div>
+        <div class="modal-buttons">
+          <button onclick="zoomIn()"><i class="fas fa-search-plus"></i></button>
+          <button onclick="zoomOut()">
+            <i class="fas fa-search-minus"></i>
+          </button>
+          <button onclick="panLeft()"><i class="fas fa-arrow-left"></i></button>
+          <button onclick="panRight()">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+          <button onclick="closeModal()">X</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
