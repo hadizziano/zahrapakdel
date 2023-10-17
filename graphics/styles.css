@@ -185,10 +185,11 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  background-color: #925000;
+  /* background-color: #925000; */
+  background-image: linear-gradient(0.25turn, #a95b09, #412201);
   color: white;
   padding: 10px;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   @media screen and (max-width: 700px) {
     padding: 3px;
     font-size: 12px;
